@@ -16,7 +16,7 @@ export default function About() {
   const toggleStyle = () => {
     setMyStyle({
       color: "black",
-      backgroundColor: btnText.includes("Light")?"white":"#789461",
+      backgroundColor: btnText.includes("Light")?"white":"#ADBC9F",
       border: "3px solid white",
       
     });

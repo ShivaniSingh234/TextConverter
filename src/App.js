@@ -18,9 +18,9 @@ function App() {
   const toggleMode = () => {
     if (mode === 'light') {
       setMode ('dark');    //setMode cannot be assigned directly by = so we used ()
-      document.body.style.backgroundColor='#12372A';
+      document.body.style.backgroundColor='#163020';
     } else {
-      setMode ('ligth');
+      setMode ('light');
       document.body.style.backgroundColor='white';
 
     }
@@ -60,7 +60,7 @@ function App() {
             <About />
           </Route>
           <Route exact path="/">
-        <TextForm heading="Enter the text to analyze below" mode={mode}/>
+        <TextForm heading="Enter the text to analyze below" mode={mode} toggleMode={toggleMode}/>
           </Route>
         </Switch>
          {/* <About/> */}

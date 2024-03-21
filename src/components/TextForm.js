@@ -77,11 +77,43 @@ export default function TextForm(props) {
     // var captializeWords=(str)=>str.match(/\s+/).map(captializeString).join(' ');
     // // return captializeWords();
     // console.log(captializeWords())
-    function capitalizeFirstLetter(text) {
-      return text.replace(/^./, text[0].toUpperCase());
-  }
     
+const handleCapitalize = () => {
+  let newText = text.split(" ").map(el => el.charAt(0).toUpperCase() + el.slice(1)).join(" ");
+  setText(newText);
+}
+    
+  const handleinverseclick = () => {
+    // console.log("inverse click is triggered");
+    let newtext = "";
+    for (let i = text.length - 1; i >= 0; i--) {
+      newtext += text[i];
+    }
+    setText(newtext);
+  };
 
+
+//   function textToSpeech(){
+//     const Speech= new SpeechSynthesisUtterance(text);
+//     const message= document.getElementById("myBox").value;
+//     Speech.lang='eng';
+//     Speech.text= message;
+//     window.speechSynthesis.speak(Speech);
+// }
+
+
+// from chatgpt
+const speak =()=> {
+  // Create a SpeechSynthesisUtterance
+  const utterance = new SpeechSynthesisUtterance(text);
+
+  // Select a voice
+  const voices = speechSynthesis.getVoices();
+  utterance.voice = voices[4]; // Choose a specific voice
+
+  // Speak the text
+  speechSynthesis.speak(utterance);
+};
 
 
 
@@ -104,8 +136,8 @@ export default function TextForm(props) {
             value={text}
             onChange={handleOnChange}
             style={{
-              backgroundColor: props.mode === "light" ? "white" : "#FBFADA",
-              color: props.mode === "dark" ? "#436850" : "black",
+              backgroundColor: props.mode === "dark" ? "#EEF0E5" : "white",
+              color: props.mode === "dark" ? "black" : "black",
             }}
             id="mybox"
             rows="8"
@@ -113,59 +145,49 @@ export default function TextForm(props) {
         </div>
 
         <button
-          className="btn btn-info mx-2"
+          className="btn btn-success mx-2"
           onClick={handleLowClick}
-          style={{
-            backgroundColor: props.mode === "light" ? "sky" : "#EBD9B4",
-          }}
+          // style={{
+          //   backgroundColor: props.mode === "light" ? "sky" : "#79AC78",
+          // }}
         >
           Convert to Lowercase
         </button>
         <button
-          className="btn btn-info mx-2"
+          className="btn btn-success mx-2"
           onClick={handleUpClick}
-          style={{
-            backgroundColor: props.mode === "light" ? "sky" : "#EBD9B4",
-          }}
         >
           Convert to UpperCase
         </button>
         <button
-          className="btn btn-info mx-2"
+          className="btn btn-success mx-2"
           onClick={handleClearClick}
-          style={{
-            backgroundColor: props.mode === "light" ? "sky" : "#EBD9B4",
-          }}
+          
         >
           Clear Text
         </button>
         <button
-          className="btn btn-info mx-2"
+          className="btn btn-success mx-2"
           onClick={handleCopy}
-          style={{
-            backgroundColor: props.mode === "light" ? "sky" : "#EBD9B4",
-          }}
+          
         >
           Copy text
         </button>
         <button
-          className="btn btn-info mx-2"
-          onClick={handleExtraSpace}
-          style={{
-            backgroundColor: props.mode === "light" ? "sky" : "#EBD9B4",
-          }}
+          className="btn btn-success mx-2"
+          onClick={handleExtraSpace} 
         >
           Remove Extra Space
         </button>
         <button
-          className="btn btn-info mx-2"
-          onClick={capitalizeFirstLetter}
-          style={{
-            backgroundColor: props.mode === "light" ? "sky" : "#EBD9B4",
-          }}
+          className="btn btn-success mx-2"
+          onClick={handleCapitalize}
         >
           Captalized Text
         </button>
+        <button className="btn btn-success mx-2" onClick={handleinverseclick}>Handle inverse</button>
+        <button className="btn btn-success mx-2" onClick={speak}>Text to speech</button>
+        
       </div>
       <div
         className="container my-4"
@@ -180,7 +202,7 @@ export default function TextForm(props) {
         <p>
           {text.length > 0
             ? text
-            : "enter something int the textbox above to preview"}
+            : "enter something in the textbox above to preview"}
         </p>
       </div>
     </>
