@@ -8,7 +8,7 @@ import TextForm from "./components/TextForm";
 // import pi, {doublePi,triplePi} from './components/math'      //default values exported can be written in any eay but non default values should be written the same way in which they are exported
 import {
   BrowserRouter as Router,
-  Switch,
+  Switch as Routes,
   Route,
 } from "react-router-dom"
 
@@ -55,14 +55,14 @@ function App() {
       {/* <Navbar/> */}
 
       <div className="container my-3">
-      <Switch>
-          <Route exact path="/about">
+      <Routes>
+          <Route exact path="/about" >
             <About />
           </Route>
-          <Route exact path="/">
+          <Route exact path="/" >
         <TextForm heading="Enter the text to analyze below" mode={mode} toggleMode={toggleMode}/>
           </Route>
-        </Switch>
+        </Routes>
          {/* <About/> */}
       </div>
          </Router>
