@@ -154,39 +154,39 @@ const speak =()=> {
           Convert to Lowercase
         </button>
         <button
-          className="btn btn-success mx-2"
+          className="btn btn-success mx-2 my-1"
           onClick={handleUpClick}
         >
           Convert to UpperCase
         </button>
         <button
-          className="btn btn-success mx-2"
+          className="btn btn-success mx-2 my-1"
           onClick={handleClearClick}
           
         >
           Clear Text
         </button>
         <button
-          className="btn btn-success mx-2"
+          className="btn btn-success mx-2 my-1"
           onClick={handleCopy}
           
         >
           Copy text
         </button>
         <button
-          className="btn btn-success mx-2"
+          className="btn btn-success mx-2 my-1"
           onClick={handleExtraSpace} 
         >
           Remove Extra Space
         </button>
         <button
-          className="btn btn-success mx-2"
+          className="btn btn-success mx-2 my-1"
           onClick={handleCapitalize}
         >
           Captalized Text
         </button>
-        <button className="btn btn-success mx-2" onClick={handleinverseclick}>Handle inverse</button>
-        <button className="btn btn-success mx-2" onClick={speak}>Text to speech</button>
+        <button className="btn btn-success mx-2 my-1" onClick={handleinverseclick}>Handle inverse</button>
+        <button className="btn btn-success mx-2 my-1" onClick={speak}>Text to speech</button>
         
       </div>
       <div
@@ -195,7 +195,7 @@ const speak =()=> {
       >
         <h3 style={{ fontFamily: "serif" }}>Your text summary</h3>
         <p>
-          {text.split(" ").length} words, {text.length} characters
+          {text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters
         </p>
         <p>{0.0008 * text.split(" ").length} Minutes read</p>
         <h3 style={{ fontFamily: "serif" }}>Preview Text</h3>
