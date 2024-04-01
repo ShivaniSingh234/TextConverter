@@ -10,6 +10,7 @@ import {
   BrowserRouter as Router,
   Switch as Routes,
   Route,
+  BrowserRouter,
 } from "react-router-dom"
 
 function App() {
@@ -45,7 +46,7 @@ function App() {
 
   return (
     <>
-    <Router>
+    <BrowserRouter basename="/TextConverter">
       <Navbar
         title="TextAnalyser"
         aboutText="About"
@@ -59,13 +60,13 @@ function App() {
           <Route exact path="/about" >
             <About />
           </Route>
-          <Route exact path="/" >
+          <Route exact path="/TextConverter" >
         <TextForm heading="Enter the text to analyze below" mode={mode} toggleMode={toggleMode}/>
           </Route>
         </Routes>
          {/* <About/> */}
       </div>
-         </Router>
+         </BrowserRouter>
 
       {/* <div>
     <List heading="Items listed"></List>

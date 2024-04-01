@@ -1,8 +1,8 @@
 {
-  "homepage": "https://ShivaniSingh234.github.io/TextAnalysis",
+  "homepage": "https://ShivaniSingh234.github.io/TextConverter",
   "name": "first-react",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -29,7 +29,6 @@
   },
   "browserslist": {
     "production": [
-      "/build",
       ">0.2%",
       "not dead",
       "not op_mini all"
